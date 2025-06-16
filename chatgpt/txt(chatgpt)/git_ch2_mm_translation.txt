@@ -1,0 +1,33 @@
+အခန်း ၂ — Git ကိုထည့်သွင်းခြင်း (Installing Git)
+
+💻 Git ကို Linux မှာ Install လုပ်ခြင်း
+
+- Debian/Ubuntu စနစ်အတွက် `apt-get` ကိုသုံးပြီး Git ကို အလွယ်တကူ install လုပ်နိုင်ပါတယ်။
+  sudo apt-get install git
+- အခြား Linux distribution များ (Red Hat, Fedora, Arch) များမှာတော့ distro-specific tools (ဥပမာ: yum, dnf, pacman) တွေသုံးရတတ်ပါတယ်။
+
+📦 Source Code မှ Git ကို တည်ဆောက်ခြင်း (Build from Source)
+
+- သင် system-specific binaries မလိုချင်ပဲ အထောက်အပံ့အပြည့်နဲ့ Git version အသစ်စွာ ရချင်တယ်ဆိုရင် source tarball ကို download လုပ်ပြီး အသုံးပြုနိုင်ပါတယ်။
+- တည်ဆောက်ဖို့လိုအပ်တဲ့ packages တွေမှာ gcc, make, libcurl, zlib စတဲ့ dependencies ပါပါတယ်။
+- make configure, make, make install လုပ်ခြင်းဖြင့် Git ကို system-wide ထည့်သွင်းနိုင်ပါတယ်။
+
+🪟 Windows OS မှာ Git ထည့်သွင်းခြင်း
+
+🌀 Option 1: Cygwin Git
+- Windows ထဲမှာ Unix-like environment ဖြစ်အောင် support ပေးတဲ့ Cygwin ထဲမှာ Git package ကို ထည့်သွင်းနိုင်တယ်။
+- Cygwin installer (setup.exe) ကို run လုပ်ပြီး devel category ထဲက Git ကို ရွေးပြီး install လုပ်တယ်။
+
+🧩 Option 2: Standalone Git (msysGit)
+- msysGit သည် Windows အတွက် သီးသန့် binary installer တစ်ခုဖြစ်ပြီး Git ကို command line tool အဖြစ် တင်ပေးတယ်။
+- Git Bash ဆိုတဲ့ Command Line Shell တစ်ခုလည်းပါဝင်ပြီး Git commands များကို အသုံးပြုဖို့ အလွယ်ကူဖြစ်စေတယ်။
+- Installer ထဲမှာ Git နဲ့ပတ်သက်တဲ့ tool တွေ၊ SSH key generator, Windows Explorer integration စတာတွေလည်း ပါဝင်ပါတယ်။
+
+🔧 Line Ending Issues
+- Windows-style (CRLF) နှင့် Unix-style (LF) line endings ကြားမှာ အမြဲတမ်း compatibility issue ဖြစ်တတ်တယ်။
+- Installer ထဲမှာ ဒီအတွက် အထူးသတိပြုဖို့ option တစ်ခုပေးထားတယ်။
+
+✅ အသုံးပြုဖို့အကြံပြုချက်
+- Git Bash ကို သုံးပြီး command line မှာ Git commands များ run လုပ်ဖို့ အကြံပြုပါတယ်။
+- Example တွေမှာလည်း Git Bash သုံးတာကို မူတည်ထားပါတယ်။
+- Linux နဲ့ Windows နှစ်မျိုးစလုံးမှာ Example တွေကို တူညီစွာအသုံးပြုနိုင်ပါတယ်။

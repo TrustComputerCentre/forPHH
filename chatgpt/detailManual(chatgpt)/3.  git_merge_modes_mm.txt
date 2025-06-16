@@ -1,0 +1,78 @@
+Git Merge Modes (မြန်မာဘာသာပြန်)
+
+🔀 Git Merge Modes (Merge နည်းလမ်းမျိုးစုံ)
+
+Git မှာ Merge လုပ်ရာမှာ သုံးနိုင်တဲ့ mode တွေအများကြီးရှိတယ်။ အချို့က strategy (algorithm) ဖြစ်ပြီး အချို့က style ဖြစ်တယ်။
+
+---
+
+✅ 1. Fast-Forward Merge
+➡️ Pointer ကိုသာ ရှေ့သွားတယ်
+➡️ Merge commit မဖန်တီးဘဲ history လုံးချောစွာ သွားတယ်
+Command:
+    git merge feature
+
+---
+
+🔀 2. 3-Way Merge (Default)
+➡️ Both branches have new commits
+➡️ Git finds common ancestor and creates a merge commit
+Command:
+    git merge feature
+
+---
+
+⛓ 3. --no-ff (Force Merge Commit)
+➡️ Even when fast-forward is possible, force merge commit
+Command:
+    git merge --no-ff feature
+
+---
+
+🧹 4. Squash Merge
+➡️ Feature branch commits are combined into one
+➡️ Manual commit is required afterward
+Commands:
+    git merge --squash feature
+    git commit -m "Squashed commit"
+
+---
+
+🧠 5. Merge Strategies (Advanced --strategy)
+| Strategy     | Description                                         |
+|--------------|-----------------------------------------------------|
+| recursive    | Default, 3-way merge with conflict handling         |
+| resolve      | Simple 2-branch merge                               |
+| ours         | Always use current branch's version on conflict    |
+| theirs       | Always use incoming branch's version on conflict   |
+| octopus      | Merge more than 2 branches at once (no conflict)   |
+
+Command example:
+    git merge --strategy=ours feature
+
+---
+
+🧪 6. Octopus Merge
+➡️ Merge 3+ branches at once
+➡️ No conflict allowed
+Command:
+    git merge branch1 branch2 branch3
+
+---
+
+📋 Summary Table
+
+| Mode               | Merge Commit? | Description                            |
+|--------------------|----------------|----------------------------------------|
+| Fast-Forward       | ❌             | Pointer only, no merge commit          |
+| 3-Way Merge        | ✅             | Combines history with merge commit     |
+| --no-ff            | ✅             | Force merge commit                     |
+| --squash           | ✅ (manual)    | One combined commit                    |
+| Strategy: ours     | ✅             | Keep current branch version only       |
+| Strategy: theirs   | ✅             | Keep incoming branch version only      |
+| Octopus            | ✅             | Merge multiple branches (no conflict)  |
+
+---
+
+Git project တစ်ခုမှာ merge mode တစ်ခုနဲ့တစ်ခုကို သုံးဖို့ စဉ်းစားတဲ့အခါ —  
+အဖွဲ့အစည်းရဲ့ policy, code review structure နဲ့ ကိုက်ညီအောင် ရွေးသင့်ပါတယ်။

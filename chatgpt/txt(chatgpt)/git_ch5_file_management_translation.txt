@@ -1,0 +1,80 @@
+အခန်း ၅ — ဖိုင်စီမံခန့်ခွဲမှုနှင့် Index (File Management and the Index)
+
+📁 Working Directory, Index, Repository
+
+Git ဟာ သုံးခုခွဲထားတဲ့ storage area တွေနဲ့ အလုပ်လုပ်တယ် —
+
+1. **Working Directory** — မိမိแกသည် ပြောင်းလဲမှုများလုပ်နေတဲ့ဖိုင်များ။
+2. **Index (Staging Area)** — commit ဖြစ်မယ့်အတွက် ပြင်ဆင်ပြီးသားဖိုင်များ။
+3. **Repository (.git directory)** — actual commit ဖြစ်ပြီးသားသမိုင်းများကို သိမ်းထားတဲ့နေရာ။
+
+---
+
+📌 File Status များ
+
+Git ထဲမှာ ဖိုင်တစ်ခုဟာ အခြေအနေ (status) အနေနဲ့:
+
+- `untracked` — Git မသိသေးတဲ့ဖိုင်
+- `tracked` — Git မှာရှိပြီးသားဖိုင်
+- `modified` — ပြောင်းလဲနေသောဖိုင်
+- `staged` — Index ထဲသို့ add လုပ်ပြီး commit လုပ်ရန်အသင့်ဖြစ်သောဖိုင်
+
+---
+
+🧮 git status
+
+ဖိုင်တွေဘယ်လိုအခြေအနေဖြစ်နေလဲဆိုတာ ကြည့်ဖို့ `git status` သုံးတယ်။
+
+```bash
+$ git status
+```
+
+---
+
+➕ git add
+
+ဖိုင်တစ်ခုကို `index` ထဲသို့ထည့်ဖို့ `git add` သုံးတယ်။ ဒါကြောင့် next commit မှာပါလာနိုင်တယ်။
+
+```bash
+$ git add file.txt
+```
+
+---
+
+🗑️ git rm
+
+ဖိုင်ကို Git ထဲကနေဖျက်ချင်ရင် `git rm` သုံးတယ်။ ဖိုင်ဟာ Working Directory နဲ့ Index နှစ်ခုလုံးကနေပျောက်သွားမယ်။
+
+```bash
+$ git rm file.txt
+```
+
+---
+
+🛠️ git reset
+
+`git reset` ဟာ ဖိုင်ကို staged (index) ထဲကနေဖယ်ချင်တဲ့အခါ သုံးတယ်။
+
+```bash
+$ git reset file.txt
+```
+
+ဤကိစ္စမှာ ဖိုင်ဟာ ပြောင်းလဲထားတဲ့အတိုင်း Working Directory မှာကျန်နေပြီး Index ထဲကပဲဖယ်သွားမယ်။
+
+---
+
+🔍 git diff
+
+- `git diff` — working directory နဲ့ index ကြားကအပြောင်းအလဲ
+- `git diff --cached` — index နဲ့ HEAD commit ကြားကအပြောင်းအလဲ
+- `git diff HEAD` — working directory နဲ့ HEAD commit ကြားကပြောင်းလဲမှုများ
+
+---
+
+🔄 Summary
+
+Git ရဲ့ core concept က index/staging area ဖြစ်တယ်။  
+အရေးကြီးဆုံးကတော့ မိမိပြင်ဆင်ထားတဲ့ commit တစ်ခုကို သိသာသလိုထိန်းချုပ်နိုင်ဖို့၊  
+ဖိုင်တွေကို `add`, `reset`, `rm`, `diff`, `status` နဲ့စီမံခန့်ခွဲဖို့လိုတယ်။
+
+အခြေခံ Git usage တစ်ခုလုံးမှာ ဒီအခန်းက အဓိကလှုပ်ရှားမှုတွေကို ဖော်ပြပေးပါတယ်။

@@ -1,0 +1,29 @@
+Preparing for a Merge (မြန်မာဘာသာပြန်)
+
+🧹 Merge လုပ်ဖို့ ပြင်ဆင်ခြင်း (Preparing for a Merge)
+
+Merge လုပ်ဖို့စတင်မယ်ဆိုရင်၊ မင်းရဲ့ working directory ကို သန်သန်ရှင်းရှင်းထားတာက အကောင်းဆုံးလေ့လာသင့်တဲ့အကြံဉာဏ်တစ်ခု ဖြစ်တယ်။
+
+✳️ Merge လုပ်တဲ့အခါမှာ Git က file version အသစ်တွေကို ဖန်တီးပြီး အဲဒါတွေကို မင်းရဲ့ working directory ထဲမှာ ထည့်သွင်းတယ်။
+အဲဒီအပြင် Git ဟာ operation ပြုလုပ်စဉ်အတွင်းမှာ file version အလယ်အလတ်/ယာယီများကို index ထဲမှာလည်းသိမ်းတယ်။
+
+📂 Dirty Working Directory / Dirty Index ဆိုတာဘာလဲ?
+
+မင်းရဲ့ working directory ထဲမှာ မပြည့်စုံသေးတဲ့ (uncommitted) ပြောင်းလဲမှုတွေရှိတယ်ဆိုပါစို့ —
+- မင်း ဖိုင်တွေကို modify လုပ်ထားတယ်
+- သို့မဟုတ် git add, git rm နဲ့ index ထဲကိုပြောင်းထားတယ်
+
+ဒါဆိုရင် မင်းရဲ့ repository ဟာ dirty ဖြစ်နေတယ်လို့ ဆိုနိုင်တယ်။
+
+⚠️ Dirty state နဲ့ merge စဖို့ကတော့... ပြဿနာဖြစ်နိုင်တယ်။
+Git ဟာ branch တစ်ချို့နဲ့ မင်းရဲ့ working directory ထဲမှာရှိတဲ့ dirty changes တွေကို တစ်ကြိမ်တည်းအတွင်း merge မလုပ်နိုင်ဖူးနိုင်တယ်။
+
+✔️ အကောင်းဆုံးအခြေအနေကတော့ —  
+merge တစ်ခါစတင်မယ့်အချိန်တိုင်းမှာ working directory နဲ့ index ကိုသန်သန်ရှင်းရှင်း (clean state) ထားဖို့ ဖြစ်တယ်။
+
+🟢 Git ဟာ မင်းရဲ့ dirty files တွေ နဲ့ merge ပြုလုပ်တဲ့ files တွေက ပတ်သက်မှုမရှိတဲ့အခါ
+(ဥပမာ disjointed files) မင်း အဆင်ပြေပြေ merge လုပ်လို့ရတယ်။
+
+ဒါပေမယ့် general rule တစ်ခုအနေနဲ့တော့…
+
+“Clean working directory နဲ့ merge စဖို့က Git အသုံးပြုမှုဘဝမှာ ပိုပြီးအဆင်ပြေစေတယ်။”

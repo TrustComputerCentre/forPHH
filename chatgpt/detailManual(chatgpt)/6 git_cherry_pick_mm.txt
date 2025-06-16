@@ -1,0 +1,45 @@
+Git cherry-pick (မြန်မာဘာသာပြန်)
+
+🍒 Git cherry-pick (သီးသန့် Commit ရွေးယူခြင်း)
+
+Git မှာ cherry-pick ဆိုတာက တခြား branch ထဲက commit တစ်ခု (သို့မဟုတ် commit အချို့) ကို  
+မင်းရဲ့ လက်ရှိ branch ထဲကို သီးသန့်ရွေးချယ်ပြီးထည့်သွင်းဖို့ သုံးတဲ့ command ဖြစ်တယ်။
+
+📌 cherry-pick ဟာ merge သို့မဟုတ် rebase လုပ်တာမဟုတ်ဘဲ  
+အကြောင်းအရာ တစ်ခုချင်းစီကိုသာ ထည့်နိုင်တာကြောင့် အထူးအသုံးဝင်တယ်။
+
+🛠 Syntax:
+    git cherry-pick <commit-hash>
+
+🐍 Python Project Example:
+မင်း feature branch မှာ commit ၅ ခုရှိတယ်။ main ထဲကို commit ၂ ခုပဲလိုချင်တယ်။
+
+    $ git checkout main
+    $ git cherry-pick abc123
+    $ git cherry-pick def456
+
+ဒီလိုနဲ့ commit abc123 နဲ့ def456 ကိုပဲ main ထဲသွားတယ်။
+
+⚠️ သတိထားရမယ့်အချက်များ:
+- History တွေ တူညီမနေတော့နိုင်
+- Conflict ဖြစ်နိုင် (တူညီတဲ့ file/line ကို ပြောင်းထားရင်)
+
+🔧 cherry-pick နဲ့ သက်ဆိုင်တဲ့ option များ:
+
+| Option       | Description                                      |
+|--------------|--------------------------------------------------|
+| `-x`         | commit log မှာ original commit ID ထည့်ပေးတယ်     |
+| `--continue` | Conflict ဖြေပြီး commit ဆက်လုပ်ချင်တဲ့အခါ        |
+| `--abort`    | cherry-pick လုပ်ခြင်းကို ပယ်ဖျက်ချင်တဲ့အခါ         |
+
+📋 Summary:
+
+| Property        | Description                              |
+|------------------|------------------------------------------|
+| Scope            | Individual commits only                  |
+| Whole branch?    | No                                       |
+| Use case         | Hotfix, selective backporting, copy-only |
+| Merge commit?    | Yes (commit created in current branch)   |
+
+Git cherry-pick ကတော့ မင်းအကြံအမြင်နဲ့အညီ  
+ရွေးချယ်ထားတဲ့ commit တစ်ခုပဲ သီးသန့်ထားချင်တဲ့အခါမှာ အံ့ဩစရာကောင်းလောက်တဲ့ command တစ်ခုပဲဖြစ်တယ်။

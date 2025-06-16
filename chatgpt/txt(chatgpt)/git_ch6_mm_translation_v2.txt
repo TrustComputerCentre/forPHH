@@ -1,0 +1,38 @@
+အခန်း ၆ — Repository များကို Clone လုပ်ခြင်း (Cloning Repositories)
+
+🔁 Git Repository ကို Clone လုပ်ခြင်း
+
+Git ရဲ့အဓိကအားသာချက်တစ်ခုကတော့ – **repository တစ်ခုလုံးကို မိမိစက်ထဲကို ပြည့်ပြည့်စုံစုံ ကူးယူနိုင်ခြင်း (clone)** ဖြစ်ပါတယ်။  
+ဒါဆိုတာက မိမိရဲ့ local machine ထဲမှာ remote repository ရဲ့ သမိုင်းတစ်လုံးလုံးကို သိမ်းထားနိုင်တယ်လို့ ဆိုလိုတာပါ။
+
+$ git clone https://github.com/user/project.git
+
+ဒီ command က GitHub (သို့မဟုတ် တခြား Git server) ထဲက project ကို local directory ထဲ clone လုပ်ပေးတယ်။  
+အဲဒါနဲ့အတူ `.git` ဖိုင်လည်းပါလာပြီး၊ သမိုင်းအားလုံးနဲ့ သက်ဆိုင်တဲ့ commit များပါလာတယ်။
+
+📂 Directory နာမည် ပြောင်းလိုလျှင်
+
+$ git clone https://github.com/user/project.git myproject
+
+အထက်က command မှာ `myproject` ဆိုတဲ့ folder နာမည်နဲ့ project ကို clone လုပ်မှာဖြစ်တယ်။
+
+🔗 Remote URL ပြောင်းခြင်း
+
+အခြေအနေတစ်ချို့မှာ Remote URL ကို ပြောင်းချင်ရင်:
+
+$ git remote set-url origin https://new.url/repo.git
+
+🌍 Remote Repository တွေကြည့်ခြင်း
+
+$ git remote -v
+
+အဲ့ဒီနဲ့ Remote name (`origin`) နဲ့ URL တွေကိုကြည့်လို့ရတယ်။
+
+📌 အကျဉ်းချုပ်
+
+- git clone <url> — Remote Git repository ကို local copy ပြုလုပ်တယ်
+- Clone လုပ်လိုက်တာနဲ့ အပြည့်အဝ သမိုင်းပါဝင်တဲ့ Git repo တစ်ခုရတယ်
+- Remote URL ပြောင်းတာ၊ Directory နာမည်ပြောင်းတာတို့လည်း လွယ်ကူတယ်
+
+Git ရဲ့ distributed nature ကို နားလည်ဖို့အတွက် cloning ဟာ အရေးအကြီးဆုံး concept တစ်ခုဖြစ်တယ်။  
+အခြား VCS များထက် Git က clone လုပ်တာမှာ performance မြန်ပြီး flexibility မြင့်တယ်။

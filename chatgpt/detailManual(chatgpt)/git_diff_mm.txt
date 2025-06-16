@@ -1,0 +1,59 @@
+🔍 Git Diff အကြောင်း (မြန်မာဘာသာ)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧠 git diff ဆိုတာဘာလဲ?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Git မှာ `git diff` ဟာ မတူညီတဲ့ commit တွေ၊ branches တွေ၊ သို့မဟုတ် file states တွေကြားမှာ 
+ဘာပြောင်းလဲမှုတွေရှိလဲဆိုတာ ပြသပေးတဲ့ command ဖြစ်ပါတယ်။
+
+➡️ မင်း ပြောင်းလဲထားတဲ့ code တွေကို စစ်ဆေးဖို့
+➡️ Merge မလုပ်ခင် နှိုင်းယှဉ်ဖို့
+➡️ ဘယ် commit မှာ ဘာတွေပြောင်းလဲလာလဲ ဆိုတာ track လုပ်ဖို့ အသုံးဝင်တယ်။
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📌 အသုံးပြုနည်းများ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣ git diff  
+➡️ Working directory ↔ Staging area (index)
+➡️ git add မလုပ်ရသေးတဲ့ ပြောင်းလဲမှုတွေကို ပြတယ်။
+
+2️⃣ git diff --staged (သို့မဟုတ် --cached)  
+➡️ Staging area ↔ HEAD commit
+➡️ git add လုပ်ပြီးသားပြောင်းလဲမှုတွေကို ပြတယ်။
+
+3️⃣ git diff HEAD  
+➡️ Working directory ↔ HEAD
+➡️ ပြောင်းလဲမှုအားလုံး (add လုပ်ပြီးသား + မလုပ်ရသေးတာ) ပြတယ်။
+
+4️⃣ git diff commit1 commit2  
+➡️ Commit နှစ်ခုကြား ကွာခြားချက်ကို ပြတယ်။
+
+5️⃣ git diff branch1..branch2  
+➡️ Branch နှစ်ခုကြား ဘာတွေကွာလဲဆိုတာ ပြတယ်။
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧪 ဥပမာများ
+
+✔ git diff  
+➡️ အခု ပြောင်းလိုက်တဲ့ file တို့ထဲမှာ git add မလုပ်ရသေးတာတွေပြတယ်။
+
+✔ git diff --staged  
+➡️ git commit မလုပ်ခင် add လုပ်ပြီးသားတွေကြည့်မယ်။
+
+✔ git diff main..feature  
+➡️ feature branch မှာ main ထက် ဘာတွေပြောင်းလဲတာလဲ?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ အကျဉ်းချုပ်
+
+| Command                  | Compare Between                     |
+|--------------------------|--------------------------------------|
+| git diff                 | Working dir ↔ Index                 |
+| git diff --staged        | Index ↔ Last commit (HEAD)          |
+| git diff HEAD            | Working dir ↔ HEAD                  |
+| git diff A B             | Commit A ↔ Commit B                 |
+| git diff main..feature   | Main ↔ Feature branch differences   |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+git diff က မင်းရဲ့ ပြောင်းလဲမှုတွေကို လုပ်ဖို့မလုပ်ဖို့ ဆုံးဖြတ်ရာမှာ အထောက်အကူဖြစ်စေတယ်။

@@ -1,0 +1,70 @@
+အခန်း ၉ — Merges (ပေါင်းခြင်း)
+
+🔀 Merge ဆိုတာဘာလဲ?
+
+**Merge** ဆိုတာကတော့ branch နှစ်ခု (သို့မဟုတ် commit line နှစ်ခု) ကို ပေါင်းထည့်ပြီး  
+အဓိကအခြေအနေတစ်ခုအဖြစ် သွားအောင်လုပ်တဲ့လုပ်ဆောင်ချက်ပါ။  
+Git ရဲ့ decentralized structure ကို effectively ထိန်းသိမ်းဖို့အတွက် အရေးအကြီးဆုံး feature တစ်ခုဖြစ်တယ်။
+
+---
+
+🌿 Merge ရဲ့အခြေခံ
+
+ဥပမာ `feature` ဆိုတဲ့ branch ကနေ `main` ထဲကို ပေါင်းချင်ရင်:
+
+$ git checkout main
+$ git merge feature
+
+Git ဟာ base commit တစ်ခုကို ရှာပြီး `main` နဲ့ `feature` ကြားကအပြောင်းအလဲကို ယှဉ်တွဲ merge ပြုလုပ်တယ်။
+
+---
+
+✅ Fast-forward Merge
+
+အချို့အခြေအနေမှာ `main` ဟာ `feature` ရဲ့ parent ဖြစ်နေလို့ direct pointer move ဖြစ်တတ်တယ်။  
+ဒါကို **fast-forward merge** လို့ခေါ်တယ်။
+
+---
+
+🔀 3-way Merge
+
+Branch နှစ်ခုဟာ independent commits များပါဝင်လာတဲ့အခါ  
+Git က common ancestor, `HEAD`, နဲ့ merging branch တို့အကြား 3-way merge ပြုလုပ်တယ်။
+
+---
+
+⚔️ Merge Conflicts
+
+ဖိုင်တစ်ခုထဲမှာ မတူညီတဲ့ပြင်ဆင်မှုတွေရှိနေတဲ့အခါ **merge conflict** ဖြစ်တတ်တယ်။  
+Git က conflict ဖြစ်နေတဲ့နေရာကို `<<<<<<<`, `=======`, `>>>>>>>` နဲ့ ဖော်ပြပေးတယ်။
+
+➡️ မိမိပြင်ပြီးတဲ့နောက် `git add` နဲ့ stage လုပ်ရတယ်။  
+➡️ ပြီးမှ `git commit` ပြန်လုပ်ရတယ်။
+
+---
+
+🙅 Merge ဖျက်ချင်ရင်?
+
+$ git merge --abort
+
+➡️ merge လုပ်နေစဉ်မှာ cancel လုပ်ချင်ရင် အသုံးပြုတယ်။
+
+---
+
+🔄 Merge commit မလုပ်ချင်ပဲ ဖိုင်တွေကိုပဲ ဆွဲချင်လား?
+
+$ git merge --no-commit --no-ff feature
+
+➡️ Diff တွေတော့ merge ထဲပါသွားတယ်၊ commit မလုပ်သေးဘူး။
+
+---
+
+📌 အကျဉ်းချုပ်
+
+- `git merge` ➤ Branch များပေါင်းခြင်း
+- `fast-forward` ➤ pointer ကိုသာရွှေ့ခြင်း
+- `3-way merge` ➤ commit tree အထဲမှာ combine လုပ်ခြင်း
+- `--abort`, `--no-commit` ➤ merge ကိုပိုထိန်းချုပ်နိုင်
+
+Git ဟာ merging တွင် အလွန် smart ဖြစ်ပြီး  
+project တစ်ခုလုံးကို စနစ်တကျပြုပြင်ဖို့အတွက် အဖိုးတန်ဆုံး feature တစ်ခုလည်း ဖြစ်ပါတယ်။

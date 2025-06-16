@@ -1,0 +1,88 @@
+အခန်း ၈ — Diffs (ကွာခြားချက်များ)
+
+🔍 Diff ဆိုတာဘာလဲ?
+
+**diff** ဆိုတာက ဖိုင်နှစ်ခု (သို့) commit နှစ်ခုကြားက **အပြောင်းအလဲ (differences)** များကို ပြသပေးတဲ့ နည်းလမ်းဖြစ်တယ်။  
+Git မှာတော့ ရိုးရိုး Unix diff tools ထက်ပိုပြီး smart ဖြစ်တယ်။
+
+---
+
+🔧 git diff – အခြေခံပြောင်းလဲမှုများကြည့်ခြင်း
+
+```bash
+$ git diff
+```
+
+➡️ Working directory နဲ့ Index ကြားက ပြောင်းလဲမှုတွေကို ပြတယ်။
+
+```bash
+$ git diff --cached
+```
+
+➡️ Index နဲ့ HEAD commit ကြားက ပြောင်းလဲမှုတွေကို ပြတယ်။
+
+```bash
+$ git diff HEAD
+```
+
+➡️ Working directory နဲ့ HEAD commit ကြားက ပြောင်းလဲမှုတွေကို ပြတယ်။
+
+---
+
+📄 git diff <file>
+
+ဖိုင်တစ်ခုချင်းစီအတွက်ပြောင်းလဲမှုတွေကို ကြည့်ချင်ရင်:
+
+```bash
+$ git diff file.txt
+```
+
+---
+
+🗂️ git diff commit1 commit2
+
+```bash
+$ git diff 1a2b3c 4d5e6f
+```
+
+➡️ Commit ID နှစ်ခုကြားက content difference ကို ပြတယ်။
+
+---
+
+🌿 git diff branch1..branch2
+
+```bash
+$ git diff main..feature
+```
+
+➡️ `feature` branch ရဲ့အပေါ်မှာ `main` ထဲကဘာကွာသလဲဆိုတာကို ပြတယ်။
+
+---
+
+🔀 git diff A...B (symmetric difference)
+
+```bash
+$ git diff main...feature
+```
+
+➡️ shared ancestor မှစပြီး commit differences တွေကို တစ်ဖက်တစ်လမ်းပြမယ်။
+
+---
+
+🛠️ git diff Options
+
+- `--stat` ➤ ပြောင်းလဲမှုအရေအတွက် (file, line count)
+- `--name-only` ➤ ပြောင်းလဲတဲ့ဖိုင်နာမည်တွေ
+- `--color` ➤ color output ဖြင့် highlight ပြ
+
+---
+
+📌 အကျဉ်းချုပ်
+
+- `git diff` ➤ unstaged changes
+- `git diff --cached` ➤ staged changes
+- `git diff HEAD` ➤ total local changes
+- `git diff commit1 commit2` ➤ commits ကြားက differences
+- `git diff branch1..branch2` ➤ branches ကြားက tree-level differences
+
+Git ရဲ့ diff system က version control မှာ ပြောင်းလဲမှုအတွင်းအမြှုပ်အမြှပ်ကို လေ့လာဖို့အတွက် မဖြစ်မနေ တန်ဖိုးရှိပါတယ်။

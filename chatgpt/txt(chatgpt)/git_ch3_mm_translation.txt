@@ -1,0 +1,77 @@
+အခန်း ၃ — စတင်အသုံးပြုခြင်း (Getting Started)
+
+📁 Repository တည်ဆောက်ခြင်း
+
+Git အသုံးပြုဖို့အတွက် ပထမဦးဆုံး လုပ်ရမှာက repository (repo) တစ်ခုတည်ဆောက်ဖို့ပါ။  
+အဲဒီ repo ဟာ သင့် project ရဲ့ သမိုင်းတွေ၊ ပြောင်းလဲမှုတွေကို သိမ်းဆည်းထားမယ့်နေရာဖြစ်ပါတယ်။
+
+```bash
+$ mkdir project
+$ cd project
+$ git init
+```
+
+အထက်ပါအတိုင်း `git init` ဆိုတာ Git ကို အဲဒီဖိုင်လ်စနစ်အတွင်း စတင်ဖွင့်လိုက်တာဖြစ်ပြီး၊ `.git/` ဆိုတဲ့ hidden directory ထဲမှာ Git ရဲ့ tracking data တွေ သိမ်းဆည်းမယ်။
+
+---
+
+📝 Files တွေ ထည့်ခြင်း
+
+အခုတော့ Git repository ထဲကို ဖိုင်တွေထည့်ဖို့လိုတယ်။  
+ဖိုင်အသစ်ဖန်တီးလိုက်ရင် Git သည် အဲဒီဖိုင်တွေကို မသိသေးပါဘူး။ `git add` command ဖြင့် Git index ထဲသို့ထည့်သွင်းရပါမယ်။
+
+```bash
+$ echo "Hello Git" > hello.txt
+$ git add hello.txt
+```
+
+`git add` ဆိုတာက staging area ထဲကို ပြင်ဆင်မှုထည့်တာဖြစ်တယ်။
+
+---
+
+🗂️ Commit လုပ်ခြင်း
+
+staging area ထဲက ပြင်ဆင်မှုတွေကို Git ထဲမှာ မှတ်တမ်းတင်ချင်တယ်ဆိုရင် `git commit` လုပ်ရပါတယ်။
+
+```bash
+$ git commit -m "Initial commit"
+```
+
+အဲဒီ commit ဟာ current repository state ကို snapshot တစ်ခုအဖြစ် သိမ်းဆည်းပြီး၊ သမိုင်းထဲထည့်သွင်းပါတယ်။
+
+---
+
+🔍 ပြောင်းလဲမှု ကြည့်ခြင်း
+
+```bash
+$ git status
+```
+
+ဒီ command က current working directory မှာ ဘာပြောင်းလဲမှုရှိသလဲ၊ ဘယ်ဖိုင်တွေ tracked/untracked ဖြစ်နေလဲဆိုတာ ပြပေးပါတယ်။
+
+```bash
+$ git diff
+```
+
+ဒါကတော့ tracked file တွေမှာ unstaged change တွေရှိလားဆိုတာဖော်ပြတယ်။
+
+---
+
+📚 History ကြည့်ခြင်း
+
+```bash
+$ git log
+```
+
+commit history တွေကိုကြည့်နိုင်ပြီး၊ commit ID, message, author, date စတာတွေပါဝင်ပါတယ်။
+
+---
+
+✅ အကျဉ်းချုပ်
+
+Git မှာ အခြေခံလုပ်ဆောင်ချက် ၃ ခုက
+1. `git add` — changes တွေကို stage လုပ်တယ်
+2. `git commit` — stage ထဲက changes တွေကို သမိုင်းထဲထည့်တယ်
+3. `git status`, `git log`, `git diff` — သိချင်တဲ့အချက်အလက်တွေကို စစ်ကြည့်တယ်
+
+ဒီအခန်းက Git ကိုစတင်အသုံးပြုဖို့အတွက် အလွယ်ဆုံးအဆင့်တွေကိုဖော်ပြထားတာဖြစ်ပြီး၊ နောက်ထပ်အခန်းတွေမှာ Git ရဲ့အခြား powerful feature တွေကို လေ့လာသွားမှာဖြစ်ပါတယ်။

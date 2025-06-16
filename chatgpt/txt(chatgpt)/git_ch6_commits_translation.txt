@@ -1,0 +1,81 @@
+အခန်း ၆ — Commits
+
+📝 Commit ဆိုတာဘာလဲ?
+
+Git မှာ **commit** ဆိုတာက မိမိရဲ့ project အခြေအနေတစ်ခုကို snapshot အဖြစ် သိမ်းဆည်းထားခြင်းဖြစ်တယ်။  
+အကြမ်းဖျင်းပြောရရင်... "ဒီအချိန်မှာ ဖိုင်တွေက ဒီအတိုင်းရှိတယ်" ဆိုတဲ့ အမှတ်တရ တစ်ခုပါ။
+
+---
+
+🔧 git commit
+
+commit တစ်ခုလုပ်ဖို့အတွက် အရင်ဆုံး `git add` နဲ့ ပြောင်းလဲမှုတွေကို staging area (index) ထဲကိုထည့်ရမယ်။
+
+```bash
+$ git add file.txt
+$ git commit -m "Add feature X"
+```
+
+🔹 `-m` နဲ့ commit message တစ်ခုရေးထားရတယ်။ အဲဒါက version history မှာ အရေးကြီးတယ်။
+
+---
+
+🧾 Commit Message ကို ပိုပြည့်စုံရေးချင်ရင်:
+
+```bash
+$ git commit
+```
+
+ဒီလိုရေးရင် default editor ထဲဝင်ပြီး multi-line commit message များရေးလို့ရတယ်။  
+- ပထမတစ်ကြောင်းက short summary (50 characters အောက်)
+- နောက်ကြောင်းတွင် အသေးစိတ်အကြောင်းဖော်ပြ
+
+---
+
+📄 git log – Commit History ကြည့်ခြင်း
+
+```bash
+$ git log
+```
+
+ဒါက commit history ကိုပြတယ်။  
+- Commit hash
+- Author
+- Date
+- Commit message
+
+`q` နဲ့ထွက်နိုင်တယ်။
+
+---
+
+⏪ git show
+
+```bash
+$ git show <commit-hash>
+```
+
+အထူး commit တစ်ခုရဲ့ details (diffs, metadata) ပြမယ်။
+
+---
+
+🔂 git commit --amend
+
+မကြာသေးတဲ့ commit ကိုပြင်ချင်ရင်:
+
+```bash
+$ git commit --amend
+```
+
+ဒါက နောက်ဆုံး commit message ကိုပြင်တာဖြစ်တယ် (သို့) staged changes အသစ်ထပ်ထည့်ခြင်း ဖြစ်တယ်။
+
+---
+
+📌 အကျဉ်းချုပ်
+
+- **git commit** — ပြောင်းလဲမှုတွေကို snapshot တစ်ခုအဖြစ်သိမ်းတယ်
+- **git log** — commit history ကြည့်နိုင်တယ်
+- **git show** — commit တစ်ခုစီကိုလေ့လာနိုင်တယ်
+- **git commit --amend** — နောက်ဆုံး commit ကိုပြန်ပြင်နိုင်တယ်
+
+Git ရဲ့ commit system ဟာ reproducible, traceable, and meaningful ဖြစ်အောင် ဒီစနစ်နဲ့လုပ်ထားတာပါ။  
+မင်းရေးတဲ့ commit တစ်ခုချင်းစီဟာ project ရဲ့ သမိုင်းထဲမှာ အရေးပါတဲ့အရာ ဖြစ်နေပါတယ်။

@@ -1,0 +1,49 @@
+အခန်း ၈ — Diffs (ဖိုင်အကြားကွာခြားချက်များ)
+
+🔍 Diff ဆိုတာဘာလဲ?
+
+diff ဆိုတာက ဖိုင်နှစ်ခု (သို့) directory နှစ်ခုကြားက ကွာခြားမှုများကို အကျဉ်းချုပ်ဖော်ပြပေးတဲ့နည်းလမ်း ဖြစ်ပါတယ်။  
+ဥပမာ `diff -u initial rewrite` ဆိုရင်တော့ `initial` ဖိုင်နဲ့ `rewrite` ဖိုင်ကြားက line by line ပြောင်းလဲမှုကိုဖော်ပြပါတယ်။
+- `-` (minus) နဲ့စတဲ့ Line တွေက ဖယ်ရှားရမယ့်အကြောင်းအရာ။
+- `+` (plus) နဲ့စတဲ့ Line တွေက အသစ်ထည့်လိုက်တဲ့အကြောင်းအရာ။
+- `@@` line တွေကတော့ ပေါင်းပြင် context တွေ။
+
+🔧 Git ထဲက git diff command
+
+Git မှာလည်း သူ့ကိုယ်ပိုင် `git diff` command ရှိပါတယ်။
+- `git diff` က working directory ထဲက unstaged changes တွေပြတယ်။
+- `git diff --cached` (သို့) `git diff --staged` က staged changes များကိုပြတယ်။
+- `git diff HEAD` ဆိုရင်တော့ HEAD commit နဲ့ working directory ကြားက ပြောင်းလဲမှုကိုပြတယ်။
+
+👉 `git add` လုပ်သွားတာနဲ့ `--cached` output တိုးလာပြီး `git diff` output လျော့လာမှာ ဖြစ်တယ်။
+
+🗂 git diff နှင့် Commit Range များ
+
+Git မှာတော့ commits ကြားက فرق (diff) ကိုလည်းကြည့်နိုင်တယ်:
+
+- `git diff commit1 commit2`
+  ➤ `commit1` နဲ့ `commit2` ကြားက tree difference
+- `git diff branch1..branch2`
+  ➤ `branch2` က `branch1` ထက်ဘယ်လိုကွာသလဲ (tree-level)
+- `git log branch1..branch2`
+  ➤ History-level ကွာခြားမှု (commits တွေ)
+
+🔀 Symmetric Difference
+
+- `git diff A...B` ဆိုရင်
+  ➤ A နဲ့ B ကြားမှာ shared ancestor (merge base) နဲ့ ရှေ့ဆက်တဲ့ ကွာခြားမှုတွေကိုပြတယ်။
+
+🛠 Option အသေးစိတ်
+
+- `--stat` ➤ ပြောင်းလဲတဲ့ line အရေအတွက်, ဖိုင်စာရင်း
+- `--color` ➤ color နဲ့ highlight ပြလုပ်တယ်
+- `--name-only` ➤ ပြောင်းလဲတဲ့ဖိုင်နာမည်တွေကိုပဲ ပြတယ်
+
+📌 နောက်ထပ် နမူနာ
+
+```
+$ git diff              # unstaged changes
+$ git diff --cached     # staged changes
+$ git diff HEAD         # working directory vs last commit
+$ git diff file.txt     # file တစ်ခုတည်းအတွက်
+```

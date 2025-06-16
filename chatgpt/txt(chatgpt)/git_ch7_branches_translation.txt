@@ -1,0 +1,100 @@
+အခန်း ၇ — Branches (ဌာနခွဲများ)
+
+🌿 Branch ဆိုတာဘာလဲ?
+
+Git မှာ **branch** ဆိုတာက project ရဲ့ development line တစ်ခုဖြစ်တယ်။  
+ဥပမာအနေနဲ့ `main` branch က primary development ဖြစ်ပြီး၊ feature အသစ်တွေကတော့ branch အသစ်တွေဖန်တီးပြီး ချိုးဖောက်ရေးသားတတ်ကြတယ်။
+
+Branch များကိုအသုံးပြုပြီးတော့ မူလ project ကို မထိခိုက်ဘဲစမ်းသပ်နိုင်တယ်။
+
+---
+
+➕ Branch အသစ်ဖန်တီးခြင်း
+
+```bash
+$ git branch new-feature
+```
+
+ဒီမှာ `new-feature` ဆိုတဲ့ branch အသစ်ဖန်တီးတယ်။
+
+---
+
+🔀 Branch ပြောင်းခြင်း
+
+```bash
+$ git checkout new-feature
+```
+
+သင်အလုပ်လုပ်ဖို့ branch အသစ်ထဲကို ပြောင်းတာ။
+
+Git 2.23 နောက်ပိုင်းမှာတော့—
+
+```bash
+$ git switch new-feature
+```
+
+ဆိုပြီး ပိုအလွယ်အဆင်ပြေပါတယ်။
+
+---
+
+🌿 Branch ဖန်တီးပြီး တစ်ခါတည်း ပြောင်းခြင်း
+
+```bash
+$ git checkout -b new-feature
+```
+
+သို့မဟုတ်
+
+```bash
+$ git switch -c new-feature
+```
+
+---
+
+🧹 Branch ဖျက်ခြင်း
+
+```bash
+$ git branch -d new-feature
+```
+
+Merge ပြီးပြီးတဲ့ branch ကိုဖျက်လိုက်တာ။
+
+---
+
+📜 Branch စာရင်းကြည့်ခြင်း
+
+```bash
+$ git branch
+```
+
+`*` ထားတဲ့နေရာက current branch ဖြစ်တယ်။
+
+---
+
+🔗 Merge ပြုလုပ်ခြင်း
+
+```bash
+$ git checkout main
+$ git merge new-feature
+```
+
+အဲ့ဒါက `new-feature` ကို `main` ထဲသို့ ပေါင်းတင်တာဖြစ်တယ်။
+
+---
+
+⚠️ Merge Conflict
+
+ပြင်ဆင်မှုတွေ တူတူရှိနေတယ်ဆိုရင် conflict ဖြစ်တတ်တယ်။ Git က conflict line တွေကို ထောက်ပြပေးတယ်။  
+ကိုယ်ဖြေရှင်းပြီးနောက် `git add` နှင့် `git commit` ပြန်လုပ်ဖို့လိုတယ်။
+
+---
+
+📌 အကျဉ်းချုပ်
+
+- `git branch` ➤ Branch အသစ်ဖန်တီးခြင်း
+- `git switch` / `git checkout` ➤ Branch ပြောင်းခြင်း
+- `git merge` ➤ Branch များပေါင်းခြင်း
+- `git branch -d` ➤ Branch ဖျက်ခြင်း
+
+Branching ဟာ Git ရဲ့ နောက်ခံမှာ အရေးကြီးဆုံး concept တစ်ခုဖြစ်ပြီး၊  
+feature development, bug fixing, testing အတွက် အထူးအဆင်ပြေပါတယ်။

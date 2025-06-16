@@ -1,0 +1,56 @@
+အခန်း ၅ — Branching and Merging (ဌာနခွဲခြင်းနှင့်ပေါင်းခြင်း)
+
+🌿 Branch ဆိုတာဘာလဲ?
+
+Git မှာ branch ဆိုတာက အခြေအနေတစ်ခုကနေ အခြားအသစ်တစ်ခုကို ပွဲခွဲထုတ်လိုက်တဲ့ path တစ်ခုပါ။  
+ဘာကြောင့်အရေးကြီးလဲဆိုရင်တော့ — code ကို စမ်းသပ်ဖို့၊ feature အသစ်တစ်ခုတိုးဖို့၊ ပြဿနာတစ်ခုပြင်ဖို့ စသဖြင့် development ကို ချိုးဖောက်ဖို့ပါ။
+
+$ git branch feature-idea
+
+အထက်မှာတော့ feature-idea ဆိုတဲ့ branch အသစ်ကို ဖန်တီးလိုက်တာဖြစ်တယ်။
+
+🔀 git checkout – Branch ကို ပြောင်းခြင်း
+
+Branch ဖန်တီးပြီးရင် အဲ့ဒီ branch ထဲကို ပြောင်းဖို့ git checkout သုံးပါတယ်။
+
+$ git checkout feature-idea
+
+အခုကနေစပြီး သင်လုပ်တဲ့ commit အသစ်တွေဟာ feature-idea branch ထဲမှာသွားမှာဖြစ်တယ်။
+
+🎯 HEAD ဆိုတာဘာလဲ?
+
+HEAD ဆိုတာက Git မှာ နောက်ဆုံး checked-out commit ကိုညွှန်ပြနေတဲ့ pointer တစ်ခုပါ။  
+ဒါဟာ သင်ဘယ်မှာရှိနေတယ်ဆိုတာကို Git သိဖို့အရေးကြီးပါတယ်။
+
+🔀 git merge – Branch တွေကို ပေါင်းခြင်း
+
+တစ်ခုချင်းစီအလုပ်လုပ်ပြီးတဲ့အခါ အဓိက branch (ဥပမာ: main) ထဲကို ပြန်ပေါင်းချင်တယ်ဆိုရင် git merge သုံးတယ်။
+
+$ git checkout main
+$ git merge feature-idea
+
+Git ဟာ feature-idea branch ရဲ့ commit တွေကို main ထဲကို ပေါင်းထည့်သွားတယ်။
+
+⚔️ Conflict เกิดခဲ့ရင်?
+
+Merge လုပ်တဲ့အခါ file တွေထဲက line တွေထပ်နေပြီး ဘယ် version ကိုယူရမလဲ မသိရင် conflict ဖြစ်တတ်တယ်။  
+Git က conflict များဖြစ်နေတဲ့နေရာတွင် အထူး <<<<<<<, =======, >>>>>>> symbol များဖြင့် ပြသပေးတယ်။  
+ဒါတွေကို ကိုယ်တိုင် ဖြေရှင်းပြီး git add နဲ့ ပြင်ပြီးရင် commit ပြန်လုပ်ရတယ်။
+
+🧹 git branch -d – Branch ဖျက်ခြင်း
+
+Merge ပြီးရင် အဲဒီ branch ကိုမလိုတော့ဘူးဆိုရင် ဖျက်ဖို့ git branch -d သုံးတယ်။
+
+$ git branch -d feature-idea
+
+📌 အကျဉ်းချုပ်
+
+Git မှာ branch နဲ့ merge ကို အသုံးပြုဖို့အတွက်:
+
+- git branch <name> — branch အသစ်ဖန်တီး
+- git checkout <name> — branch ပြောင်း
+- git merge <name> — merge ပြုလုပ်
+- git branch -d <name> — မလိုတဲ့ branch ဖျက်
+
+Branching က Git ရဲ့ အားကြီးဆုံး feature တစ်ခုဖြစ်ပြီး တကယ်တန်ဖိုးရှိပါတယ်။  
+အခြား VCS များထက် Git ဟာ အလွန်မြန်ဆန်စွာ branch စတင်နိုင်ပြီး merge လုပ်နိုင်တာကြောင့် modern development အတွက် သင့်လျော်ပါတယ်။
