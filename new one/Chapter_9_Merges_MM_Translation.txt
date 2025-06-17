@@ -1,0 +1,62 @@
+အခန်း ၉ – Merges (ပေါင်းခြင်းများ)
+
+Git ဟာ distributed version control system ဖြစ်တဲ့အတွက် developer များစွာက တစ်ပြေးညီမဟုတ်ပဲ ပြောင်းလဲမှုတွေကို မိမိရဲ့ local repository ထဲမှာ လုပ်ဆောင်နိုင်ပြီး နောက်မှာအချင်းချင်း ပေါင်းစည်းနိုင်ပါတယ်။
+
+**Merge ဆိုတာကဘာလဲ?**
+Git မှာ merge တစ်ခုပြုလုပ်သည်ဆိုသည်မှာ သမားရိုးကျအားဖြင့် branch နှစ်ခု (တခါတလေ သုံးခု၊ လေးခုထက်ပိုနိုင်တယ်) ကို ပေါင်းစည်းခြင်းဖြစ်ပါတယ်။
+
+Merge လုပ်တဲ့အခါမှာ အချို့သော branch တွေမှာ file တူတူပေါ်မှာ ပြောင်းလဲမှုရှိမယ်ဆိုရင် Git ဟာ အလိုအလျောက် conflict မဖြေဘဲ သုံးစွဲသူ (developer) ကို ဖျော်ဖြေခိုင်းတတ်ပါတယ်။
+
+**Merge လုပ်နည်း – ဥပမာများ**
+```bash
+$ git checkout master
+$ git merge feature_branch
+```
+
+**Conflicts မရှိတဲ့ Merge နမူနာနှင့်ရှိတဲ့ Merge နမူနာ**  
+Merge conflict မရှိရင် Git က auto-commit တစ်ခုဖန်တီးပြီး စီစဉ်ပေးတယ်။ Conflict ရှိလျှင် index ထဲမှာ “unmerged” ဆိုတဲ့အဖြစ်ထားပြီး သုံးစွဲသူကို ကိုယ်တိုင်ဖြေဖို့လိုတယ်။
+
+**Merge Conflict ဖြစ်နေတဲ့ဖိုင်တွေရှာဖွေရန်**
+- `git status`
+- `git ls-files -u`
+
+**Conflict ဖြေရှင်းပြီးနောက်**
+- conflict ဖြေပြီးရင် `git add` နဲ့ stage လုပ်ပြီး `git commit` လုပ်ပါ။
+
+**Merge Strategies (ပေါင်းစည်းနည်းဗျူဟာများ)**
+- `resolve` — သုံးစွဲသူဘက်မှ manual ဖြေဖို့အတွက် ရိုးရှင်းတဲ့နည်း
+- `recursive` — အများဆုံးအသုံးပြုသော default strategy ဖြစ်ပြီး၊ merge base များစွာရှိတဲ့အခါတွင်အသုံးဝင်သည်။
+- `octopus` — branches ၃ ခုထက်ပိုတဲ့ merge တွေအတွက် အသုံးပြုသည်။
+- `ours`, `subtree` — particular case-specific strategies
+
+**Git Merge Command နဲ့ Output**
+Merge ပြုလုပ်ပြီးတဲ့ commit တွေမှာ merge parent များအနေနဲ့ log မှာ မြင်နိုင်တယ်။ `git show` လုပ်မယ်ဆိုရင် parents တစ်ချို့အတွက် SHA1 တွေပါလာတတ်တယ်။
+
+**Conflict Marker Format**
+```text
+<<<<<<< HEAD
+your changes
+=======
+incoming changes
+>>>>>>> feature
+```
+
+**Merge Commit မှာ Diff Format**
+Merge commit ရဲ့ diff ဟာ normal diff မဟုတ်ပဲ combined diff format ဖြစ်တယ်။ ဒါက commit graph ထဲမှာ ဘယ်ဟာကဘယ်လိုဖြစ်လာတယ်ဆိုတာ နားလည်နိုင်အောင်ဖော်ပြပေးတယ်။
+
+**Squash Merge**  
+`git merge --squash branch_name` ဆိုပြီး commits များစွာကို commit တစ်ခုအဖြစ် ချုပ်ညပ် merge လုပ်နိုင်တယ်။ သို့သော် history ကို ပုံမှန် merge မျိုးလို စနစ်တကျ မမှတ်တမ်းတင်တော့ဘူး။
+
+**Merge ဖြေရှင်းခြင်းဖျက်လိုလျှင်**  
+```bash
+$ git reset --hard HEAD
+```  
+ဒါက merge operation မပြီးမီအခြေအနေကို restore လုပ်တယ်။ Merge ပြီးပြီးနောက်မှာ undo လုပ်ချင်ရင်:
+```bash
+$ git reset --hard ORIG_HEAD
+```
+
+**Git merge ဟာ object model အပေါ်မှာ ဘယ်လိုအလုပ်လုပ်သလဲ?**
+Merge တစ်ခုပြုလုပ်တဲ့အခါမှာ Git ဟာ commit object အသစ်ဖန်တီးပြီး၊ tree object အသစ်တစ်ခုရလာအောင် file version တွေကို ပေါင်းစည်းပေးတယ်။
+
+(... အခြား sub-section များ - “How Git Thinks About Merges”, “Using --squash”, “Merge Drivers”, “Recursive vs Resolve” စတဲ့အကြောင်းအရာများကို နောက်ထပ်ပြည့်စုံအောင် ဆက်ရေးထားနိုင်သည်။ ...)
