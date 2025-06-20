@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weekly Student Attendance</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: #0a0f1c;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 3px solid #2e3440;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #00b4d8;
+      margin-bottom: 10px;
+    }
+
+    header img {
+      max-width: 100px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin-top: 20px;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #00b4d8;
+      color: white;
+    }
+
+    .container1 {
+      background: #fff;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #0056b3;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .attendance-list {
+      margin-top: 30px;
+    }
+
+    .attendance-entry {
+      background-color: #f8f9fa;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      transition: transform 0.2s;
+    }
+
+    .attendance-entry:hover {
+      transform: scale(1.02);
+    }
+
+    .attendance-entry button {
+      background-color: #dc3545;
+      width: auto;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .container1 {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Trust Computer</h1>
+    <img src="1.jpg" alt="College Logo" />
+    <nav>
+      <ul>
+        <li><a href="Course.html">Course Process</a></li>
+        <li><a href="enroll.html">Enrollment</a></li>
+        <li><a href="Payment.html">Payment</a></li>
+        <li><a href="Home.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container1">
+      <h2>Weekly Student Attendance</h2>
+      <form id="attendanceForm">
+        <input type="text" id="studentID" placeholder="Enter Student ID" required />
+        <input type="text" id="studentName" placeholder="Enter Student Name" required />
+        <input type="text" id="subjectName" placeholder="Enter Subject Name" required />
+
+        <table>
+          <tr><th>Day</th><th>Attendance</th></tr>
+          <tr><td>Monday</td><td><select class="attendanceStatus"><option>Present</option><option>Absent</option></select></td></tr>
+          <tr><td>Tuesday</td><td><select class="attendanceStatus"><option>Present</option><option>Absent</option></select></td></tr>
+          <tr><td>Wednesday</td><td><select class="attendanceStatus"><option>Present</option><option>Absent</option></select></td></tr>
+          <tr><td>Thursday</td><td><select class="attendanceStatus"><option>Present</option><option>Absent</option></select></td></tr>
+          <tr><td>Friday</td><td><select class="attendanceStatus"><option>Present</option><option>Absent</option></select></td></tr>
+        </table>
+
+        <button type="button" onclick="addAttendance()">Add Attendance</button>
+      </form>
+
+      <div class="attendance-list" id="attendanceList"></div>
+    </div>
+  </main>
+
+  <script>
+    function addAttendance() {
+      const studentID = document.getElementById('studentID').value.trim();
+      const studentName = document.getElementById('studentName').value.trim();
+      const subjectName = document.getElementById('subjectName').value.trim();
+      const attendanceStatuses = document.querySelectorAll('.attendanceStatus');
+
+      if (!studentID || !studentName || !subjectName) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      let attendanceData = [];
+      attendanceStatuses.forEach(select => {
+        attendanceData.push(select.value);
+      });
+
+      const attendanceList = document.getElementById('attendanceList');
+      const attendanceItem = document.createElement('div');
+      attendanceItem.classList.add('attendance-entry');
+
+      attendanceItem.innerHTML = `
+        <p><strong>${studentID} - ${studentName} - ${subjectName}</strong></p>
+        <p>Mon: ${attendanceData[0]}, Tue: ${attendanceData[1]}, Wed: ${attendanceData[2]}, Thu: ${attendanceData[3]}, Fri: ${attendanceData[4]}</p>
+        <button onclick="this.parentElement.remove()">Delete</button>
+      `;
+
+      attendanceList.appendChild(attendanceItem);
+
+      // Reset form
+      document.getElementById('attendanceForm').reset();
+    }
+  </script>
+</body>
+</html>
